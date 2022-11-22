@@ -1,0 +1,29 @@
+<string> ANTHA BARI - 
+	Prints and stays in same line
+-----------------------------------------------------------------
+<string> ANTHA HELU -
+	Prints and goes to next line
+-----------------------------------------------------------------
+<variable> ANDRE <value>
+	Initialize variable and store value
+-----------------------------------------------------------------
+<value1> JOTHE <value2> SERISU - addition
+<value1> INDHA <Value2> TEGI - subtraction
+<value1> ANNU <value2> BHAAGAGALU MAADU - division
+-----------------------------------------------------------------
+<condition> IDDRE
+	<statements>
+SAAKU BIDU
+ILLA <condition2> IDDRE
+	<statements2>
+SAAKU BIDU
+ILLA
+	<statements>
+SAAKU BIDU
+		Same as if...elif...else
+-----------------------------------------------------------------	
+YAA VAREGU <condition> IRUTTHO ->
+	<statements>
+SAAKU BIDU
+		while loop
+-----------------------------------------------------------------
