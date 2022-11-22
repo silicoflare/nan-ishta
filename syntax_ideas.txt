@@ -10,6 +10,7 @@
 <value1> JOTHE <value2> SERISU - addition
 <value1> INDHA <Value2> TEGI - subtraction
 <value1> ANNU <value2> BHAAGAGALU MAADU - division
+<value1> ANNU <value2> INDHA GUNISU - multiplication
 -----------------------------------------------------------------
 <condition> IDDRE
 	<statements>
