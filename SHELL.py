@@ -1,7 +1,11 @@
 import HQ
 import _core as c
+import os
 
 statement = ''
+os.system('cls')
+print("Nan Ishta! v2.0")
+print("Kaaryagatha nillisalu 'exit' type maadi")
 while True: 
     statement = input(">>> ")
     # print(f"{statement}")
@@ -27,3 +31,5 @@ while True:
     else:
         print("NiyamaDosha: tappu aadesha")
     print()
+    
+print("Dhanyavaadagalu!")
