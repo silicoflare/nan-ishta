@@ -1,0 +1,25 @@
+{
+  "name": "nanishta",
+  "displayName": "Nan Ishta",
+  "description": "Syntax Highlighting for Nan Ishta",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "nanishta",
+      "aliases": ["nan_ishta", "nanishta"],
+      "extensions": [".nan"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "nanishta",
+      "scopeName": "source.nan_ishta",
+      "path": "./syntaxes/nanishta.tmLanguage"
+    }]
+  }
+}
