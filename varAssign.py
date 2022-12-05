@@ -2,16 +2,16 @@ import _core as c
 import expression_exec as ex
 
 def exe(varName, value):
+    # print(f"{varName} = {value}")
     if varName in c._variables:
-        variableRef =  c._variables[varName]
-        if variableRef.datatype == 'SANKHYE':
+        if c._variables[varName].datatype == 'SANKHYE':
             try:
                 if value[0] == '"' or value[0] == "'":
                     print(f"MoulyaDosha: \"{value}\" SANKHYE moulya alla.")
                     return 0
 
                 expression = ex.makeExp(value)
-                variableRef.value = int(eval(expression))
+                c._variables[varName].value = int(eval(expression))
             except ValueError:
                 print(f"MoulyaDosha: \"{value}\" SANKHYE moulya alla.")
                 return 0
@@ -19,14 +19,14 @@ def exe(varName, value):
                 print(f"AstitvaDosha: {ke} hesurina astitva illa.")
                 return 0
         
-        elif variableRef.datatype == 'DASHAMANSHA':
+        elif c._variables[varName].datatype == 'DASHAMANSHA':
             try:
                 if value[0] == '"' or value[0] == "'":
                     print(f"MoulyaDosha: \"{value}\" DASHAMANSHA moulya alla.")
                     return 0
 
                 expression = ex.makeExp(value)
-                variableRef.value = float(eval(expression))
+                c._variables[varName].value = float(eval(expression))
             except ValueError:
                 print(f"MoulyaDosha: \"{value}\" DASHAMANSHA moulya alla.")
                 return 0
@@ -34,19 +34,19 @@ def exe(varName, value):
                 print(f"AstitvaDosha: {ke} hesurina astitva illa.")
                 return 0
 
-        elif variableRef.datatype == 'TARKA':
+        elif c._variables[varName].datatype == 'TARKA':
             try:
                 if value[0] == '"' or value[0] == "'":
                     print(f"MoulyaDosha: \"{value}\" TARKA moulya alla.")
                     return 0
 
                 if value == 'SARI':
-                    variableRef.value = True
+                    c._variables[varName].value = True
                 elif value == 'TAPPU':
-                    variableRef.value = False
+                    c._variables[varName].value = False
                 else:
                     expression = ex.makeExp(value)
-                    variableRef.value = float(eval(expression))
+                    c._variables[varName].value = float(eval(expression))
             except ValueError:
                 print(f"MoulyaDosha: \"{value}\" TARKA moulya alla.")
                 return 0
@@ -54,10 +54,11 @@ def exe(varName, value):
                 print(f"AstitvaDosha: {ke} hesurina astitva illa.")
                 return 0
         
-        elif variableRef.datatype == 'SHABDA':
+        elif c._variables[varName].datatype == 'SHABDA':
             try:
                 expression = ex.makeExp(value)
-                variableRef.value = eval(expression)
+                # print(f"Damn: {expression}")
+                c._variables[varName].value = eval(expression)
             except KeyError as ke:
                 print(f"AstitvaDosha: {ke} hesurina astitva illa.")
                 return 0
@@ -66,4 +67,5 @@ def exe(varName, value):
         print(f"AstitvaDosha: {varName} hesurina astitva illa.")
         return 0
 
+    # print(f"{varName} = {c._variables[varName].value}")
     return f"{varName} = {c._variables[varName].value}"

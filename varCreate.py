@@ -50,7 +50,7 @@ def exe(modifier, variableName, value):
             value = ''
             for x in valueList:
                 value += x
-            c._variables[variableName] = value
+            c._variables[variableName] = varcls.Variable("SHABDA", value)
         else:
             if value in c._variables:
                 c._variables[variableName] = c._variables[value]
@@ -98,5 +98,6 @@ def exe(modifier, variableName, value):
                 print(f"AstitvaDosha: {ke} hesurina astitva illa.")
                 return 0
 
+    # print(f"{variableName} = {c._variables[variableName].value}")
     return f"{variableName} = {c._variables[variableName].value}"
 

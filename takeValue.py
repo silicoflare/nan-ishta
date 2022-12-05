@@ -31,6 +31,13 @@ def exe(isShell, varName, message):
                 print(f"MoulyaDosha: \"{inputVal}\" DASHAMANSHA moulya alla.")
                 return 0
 
+        elif c._variables[varName].datatype == 'SHABDA':
+            try:
+                c._variables[varName].value = inputVal
+            except ValueError:
+                print(f"MoulyaDosha: \"{inputVal}\" DASHAMANSHA moulya alla.")
+                return 0
+        
         elif c._variables[varName].datatype == 'TARKA':
             try:
                 if inputVal[0] == '"' or inputVal[0] == "'":
