@@ -9,4 +9,4 @@ def exe(string):
     
     # print(f"stuff: '{stuff}'")
 
-    exec(f"print('{stuff}')")
+    exec(f"print('{stuff}', end='')")

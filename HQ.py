@@ -3,6 +3,10 @@ import helu
 import takeValue
 import varAssign
 import varCreate
+import ifCon
+import importing
+import ifElse
+import execute
 
 def print(string):
     helu.exe(string)
@@ -21,5 +25,17 @@ def assignvar(name, value):
     else:
         return ''
     
-def takeval(name, value):
-    takeValue.exe(name, value)
+def takeval(isShell, name, value):
+    takeValue.exe(isShell, name, value)
+
+def ifEXE(cond, stat):
+    ifCon.exe(cond, stat)
+
+def importit(module):
+    importing.exe(module)
+
+def ifElseEXE(cond, tru, fal):
+    ifElse.exe(cond, tru, fal)
+
+def execyut(statement):
+    execute.exe(statement)

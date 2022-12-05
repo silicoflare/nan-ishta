@@ -1,5 +1,7 @@
 import _core as c
 import expression_exec as ex
+import math
+import random
 
 def makeStr(value):
     finalString = f" "
@@ -7,14 +9,16 @@ def makeStr(value):
     varName = ''
     isVar = False
     count = 0
+    hasVar = False
     for x in value:
         if x == '{':
             isVar = True
+            hasVar = True
             finalString += '{'
         elif x == '}':
             isVar = False
             finalString += f"{count}}}"
-            varList += ex.makeExp(varName)
+            varList += ex.makeExp(varName) + ', '
             # varList += "c._variables[\'"
             # varList += varName
             # varList += "\'].value, "
@@ -28,6 +32,9 @@ def makeStr(value):
 
     finalString = finalString.strip()
     n = len(varList)
-    final = f"{finalString}.format({varList[:n]})"
+    if hasVar:
+        final = f"{finalString}.format({varList[:n]})"
+    else:
+        final = finalString
     # print(final)
     return eval(final)

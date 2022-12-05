@@ -1,48 +1,49 @@
 import _core as c
 import expression_exec as ex
 
-def exe(varName, message):
+def exe(isShell, varName, message):
+    # print(varName, message)
+    
     if varName in c._variables:
         inputVal = input(str(message[1:len(message)-1]))
 
-        variableRef =  c._variables[varName]
-        if variableRef.datatype == 'SANKHYE':
+        if c._variables[varName].datatype == 'SANKHYE':
             try:
                 if inputVal[0] == '"' or inputVal[0] == "'":
                     print(f"MoulyaDosha: \"{inputVal}\" SANKHYE moulya alla.")
                     return 0
 
                 expression = ex.makeExp(inputVal)
-                variableRef.inputVal = int(eval(expression))
+                c._variables[varName].value = int(eval(expression))
             except ValueError:
                 print(f"MoulyaDosha: \"{inputVal}\" SANKHYE moulya alla.")
                 return 0
         
-        elif variableRef.datatype == 'DASHAMANSHA':
+        elif c._variables[varName].datatype == 'DASHAMANSHA':
             try:
                 if inputVal[0] == '"' or inputVal[0] == "'":
                     print(f"MoulyaDosha: \"{inputVal}\" DASHAMANSHA moulya alla.")
                     return 0
 
                 expression = ex.makeExp(inputVal)
-                variableRef.inputVal = float(eval(expression))
+                c._variables[varName].value = float(eval(expression))
             except ValueError:
                 print(f"MoulyaDosha: \"{inputVal}\" DASHAMANSHA moulya alla.")
                 return 0
 
-        elif variableRef.datatype == 'TARKA':
+        elif c._variables[varName].datatype == 'TARKA':
             try:
                 if inputVal[0] == '"' or inputVal[0] == "'":
                     print(f"MoulyaDosha: \"{inputVal}\" TARKA moulya alla.")
                     return 0
 
                 if inputVal == 'SARI':
-                    variableRef.inputVal = True
+                    c._variables[varName].value = True
                 elif inputVal == 'TAPPU':
-                    variableRef.inputVal = False
+                    c._variables[varName].value = False
                 else:
                     expression = ex.makeExp(inputVal)
-                    variableRef.inputVal = float(eval(expression))
+                    c._variables[varName].value = float(eval(expression))
             except ValueError:
                 print(f"MoulyaDosha: \"{inputVal}\" TARKA moulya alla.")
                 return 0
@@ -51,4 +52,5 @@ def exe(varName, message):
         print(f"AstitvaDosha: {varName} hesurina astitva illa.")
         return 0
 
-    print(f"{varName} = {c._variables[varName].inputVal}")
+    if isShell:
+        print(f"{varName} = {c._variables[varName].value}")

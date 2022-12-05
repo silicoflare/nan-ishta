@@ -23,6 +23,8 @@ def exe(modifier, variableName, value):
         print(f"NaamaDosha: \"{variableName}\" nondaayita pada, addarinda hesarakkaagi prayoga madabaaradu.")
         return 0
 
+    # print(modifier, variableName, value)
+
     if modifier == 'SANKHYE':
         try:
             if value[0] == '"' or value[0] == "'":
@@ -37,6 +39,9 @@ def exe(modifier, variableName, value):
                 c._variables[variableName] = varcls.Variable("SANKHYE", c._variables[value].value)
             else:
                 print(f"MoulyaDosha: \"{value}\" SANKHYE moulya alla.")
+                return 0
+        except KeyError as ke:
+                print(f"AstitvaDosha: {ke} hesurina astitva illa.")
                 return 0
 
     elif modifier == 'SHABDA':
@@ -65,6 +70,9 @@ def exe(modifier, variableName, value):
             else:
                 print(f"MoulyaDosha: \"{value}\" DASHAMANSHA moulya alla.")
                 return 0
+        except KeyError as ke:
+                print(f"AstitvaDosha: {ke} hesurina astitva illa.")
+                return 0
 
     elif modifier == 'TARKA':
         try:
@@ -80,23 +88,15 @@ def exe(modifier, variableName, value):
                 expression = ex.makeExp(value)
                 c._variables[variableName] = varcls.Variable("TARKA", bool(eval(expression)))
         except ValueError:
-            print(f"MoulyaDosha: \"{value}\" TARKA moulya alla.")
-            return 0
+            if value in c._variables:
+                c._variables[variableName] = varcls.Variable("TARKA", c._variables[value].value)
+            else:
+                print(f"MoulyaDosha: \"{value}\" TARKA moulya alla.")
+                return 0
+            
+        except KeyError as ke:
+                print(f"AstitvaDosha: {ke} hesurina astitva illa.")
+                return 0
 
     return f"{variableName} = {c._variables[variableName].value}"
 
-
-'''
-while True:
-    statement = input("Enter a statement: ")
-
-    # print(statement=='exit')
-    if statement == 'exit':
-        break
-
-    answer = exe(statement)
-    if answer==0:
-        continue
-    else:
-        print(answer)
-'''

@@ -15,6 +15,9 @@ def exe(varName, value):
             except ValueError:
                 print(f"MoulyaDosha: \"{value}\" SANKHYE moulya alla.")
                 return 0
+            except KeyError as ke:
+                print(f"AstitvaDosha: {ke} hesurina astitva illa.")
+                return 0
         
         elif variableRef.datatype == 'DASHAMANSHA':
             try:
@@ -26,6 +29,9 @@ def exe(varName, value):
                 variableRef.value = float(eval(expression))
             except ValueError:
                 print(f"MoulyaDosha: \"{value}\" DASHAMANSHA moulya alla.")
+                return 0
+            except KeyError as ke:
+                print(f"AstitvaDosha: {ke} hesurina astitva illa.")
                 return 0
 
         elif variableRef.datatype == 'TARKA':
@@ -43,6 +49,17 @@ def exe(varName, value):
                     variableRef.value = float(eval(expression))
             except ValueError:
                 print(f"MoulyaDosha: \"{value}\" TARKA moulya alla.")
+                return 0
+            except KeyError as ke:
+                print(f"AstitvaDosha: {ke} hesurina astitva illa.")
+                return 0
+        
+        elif variableRef.datatype == 'SHABDA':
+            try:
+                expression = ex.makeExp(value)
+                variableRef.value = eval(expression)
+            except KeyError as ke:
+                print(f"AstitvaDosha: {ke} hesurina astitva illa.")
                 return 0
 
     else:
