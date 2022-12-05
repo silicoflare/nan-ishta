@@ -1,0 +1,89 @@
+{
+    "editor.formatOnType": true,
+    "remoteHub.commitDirectlyWarning": "off",
+    "window.zoomLevel": 1,
+    "files.associations": {
+        "*.nan": "nanishta"
+    },
+    "editor.tokenColorCustomizations": {
+        "[Visual Studio Dark - C++]": {
+            "textMateRules": [
+                {
+                    "scope": "comment.nan_ishta", 
+                    "settings": {
+                        "fontStyle": "italic",
+                        "foreground": "#00FF00"
+                    }
+                },
+                {
+                    "scope": [
+                        "datatype.nan_ishta"
+                    ],
+                    "settings": {
+                        "foreground": "#FFA500"
+                    }
+                },
+                {
+                    "scope": [
+                        "variable",
+                        "string constant.other.placeholder",
+                        "identifier.nan_ishta"
+                    ],
+                    "settings": {
+                        "foreground": "#00FFFF"
+                    }
+                },
+                {
+                    "scope": [
+                        "text.nan_ishta"
+                    ],
+                    "settings": {
+                        "foreground": "#a23300"
+                    }
+                },
+                {
+                    "scope": [
+                        "constant.other.color"
+                    ],
+                    "settings": {
+                        "foreground": "#ffffff"
+                    }
+                },
+                {
+                    "scope": [
+                        "invalid",
+                        "invalid.illegal"
+                    ],
+                    "settings": {
+                        "foreground": "#FF5370"
+                    }
+                },
+                {
+                    "scope": [
+                        "keyword.nan_ishta"
+                    ],
+                    "settings": {
+                        "foreground": "#8800C7"
+                    }
+                },
+                {
+                    "scope": [
+                        "operator.nan_ishta"
+                    ],
+                    "settings": {
+                        "foreground": "#ffff00"
+                    }
+                },
+                {
+                    "scope": [
+                        "temp.nan_ishta"
+                    ],
+                    "settings": {
+                        "foreground": "#3c00ff"
+                    }
+                }
+            ]
+        },
+    },
+    "workbench.colorTheme": "Visual Studio Dark - C++"
+}
